@@ -1,0 +1,20 @@
+runtime: nodejs20
+service: api
+
+env_variables:
+  NODE_ENV: production
+  MONGODB_URI: mongodb+srv://admin:j9CE64JREzsCsEFF@cluster0.mmqynt6.mongodb.net/fruit-veggie-app?retryWrites=true&w=majority&appName=Cluster0
+  JWT_SECRET: your_production_jwt_secret
+  GOOGLE_CLOUD_PROJECT_ID: cs144-25s-xingbo2002
+  USDA_API_KEY: FslwQoEftS6LYvgtpAJtcNM12Z0aHE2Ikp8WhMfr
+  UNSPLASH_ACCESS_KEY: wWD8vKPz39H0o_E-y08hfqA2tSoXHlmXQcgaoU2h2Lc
+  PEXELS_API_KEY: mz2kb49btAFUvQTKHltnpEDVUb1EkbRdIAjPRMEu3ws0NZoTHBqc2PO7
+
+automatic_scaling:
+  min_instances: 0
+  max_instances: 1
+
+handlers:
+  - url: /.*
+    script: auto
+    secure: always
